@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1525816634 source:c:\users\user\documents\codeblocks\sfml_shooter\main.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	<cRenderObject.h>
+	<cFontLoader.h>
+	<cTextureLoader.h>
+	<cMenuElement.h>
+
+1525744872 source:c:\users\user\documents\codeblocks\sfml_shooter\src\crenderobject.cpp
+	"cRenderObject.h"
+
+1525744858 c:\users\user\documents\codeblocks\sfml_shooter\include\crenderobject.h
+	<sfml/graphics.hpp>
+	<SFML/System.hpp>
+	<vector>
+
+1525816455 source:c:\users\user\documents\codeblocks\sfml_shooter\src\cfontloader.cpp
+	"cFontLoader.h"
+
+1525816455 c:\users\user\documents\codeblocks\sfml_shooter\include\cfontloader.h
+	<sfml/Graphics.hpp>
+	<vector>
+
+1525814313 source:c:\users\user\documents\codeblocks\sfml_shooter\src\ctextureloader.cpp
+	"cTextureLoader.h"
+
+1525814302 c:\users\user\documents\codeblocks\sfml_shooter\include\ctextureloader.h
+	<sfml/Graphics.hpp>
+	<vector>
+
+1525815837 source:c:\users\user\documents\codeblocks\sfml_shooter\src\cmenuelement.cpp
+	"cMenuElement.h"
+	<iostream>
+
+1525815652 c:\users\user\documents\codeblocks\sfml_shooter\include\cmenuelement.h
+	<sfml/Graphics.hpp>
+	"cTextureLoader.h"
+
