@@ -1,10 +1,10 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <cRenderObject.h>
-#include <cFontLoader.h>
-#include <cTextureLoader.h>
-#include <cMenuElement.h>
-#include <Textf.h>
+#include "cRenderObject.h"
+#include "cFontLoader.h"
+#include "cTextureLoader.h"
+#include "cMenuElement.h"
+#include "Textf.h"
 
 int main()
 {
@@ -18,9 +18,9 @@ int main()
 
     cRenderObject MainWindow(sf::VideoMode(500,500),"TITLE");
     MainWindow.setActive(false);
-    MainWindow.StartThread();
+    MainWindow.startThread();
 
-    MainWindow.AddObject(LoadingSprite);
+    MainWindow.addObject(LoadingSprite);
 
     cFontLoader FontLoader;
     cTextureLoader TextureLoader;
@@ -28,20 +28,14 @@ int main()
     FontLoader.LoadFont(cFontLoader::impact,"resource/fonts/impact.ttf");
 
     //Load menu elements with borders
-    TextureLoader.LoadTexture(cTextureLoader::MENU_LEFT_BORDER,"resource/textures/menu/background/border/left.png");
-    TextureLoader.LoadTexture(cTextureLoader::MENU_RIGHT_BORDER,"resource/textures/menu/background/border/right.png");
-    TextureLoader.LoadTexture(cTextureLoader::MENU_MIDDLE_BORDER,"resource/textures/menu/background/border/straight.png");
+    TextureLoader.loadTexture("MENU_LEFT_BORDER","resource/textures/menu/background/border/left.png");
+    TextureLoader.loadTexture("MENU_RIGHT_BORDER","resource/textures/menu/background/border/right.png");
+    TextureLoader.loadTexture("MENU_MIDDLE_BORDER","resource/textures/menu/background/border/straight.png");
 
+    MainWindow.pause();
+    MainWindow.waitForPaused();
 
-    //Load menu elements without borders
-    TextureLoader.LoadTexture(cTextureLoader::MENU_LEFT_NOBORDER,"resource/textures/menu/background/noborder/left.png");
-    TextureLoader.LoadTexture(cTextureLoader::MENU_RIGHT_NOBORDER,"resource/textures/menu/background/noborder/right.png");
-    TextureLoader.LoadTexture(cTextureLoader::MENU_MIDDLE_NOBORDER,"resource/textures/menu/background/noborder/straight.png");
-
-    MainWindow.Pause();
-    MainWindow.WaitForPaused();
-
-    MainWindow.RemoveAndDeleteObject(LoadingSprite);
+    MainWindow.removeAndDeleteObject(LoadingSprite);
 
     sf::Text Title;
     Title.setFont(FontLoader.GetFont(cFontLoader::impact));
@@ -68,11 +62,11 @@ int main()
     TextL->setCharacterSize(10);
 
 
-    MainWindow.AddObject(TextL);
+    MainWindow.addObject(TextL);
 
-    MainWindow.AddObject(MainBar);
+    MainWindow.addObject(MainBar);
 
-    MainWindow.Resume();
+    MainWindow.resume();
 
     while(MainWindow.isOpen())
     {
@@ -83,8 +77,8 @@ int main()
                 MainWindow.close();
         }
 
-        FPS = MainWindow.GetFramerate();
-        Frametime = MainWindow.GetFrametime();
+        FPS = MainWindow.getFramerate();
+        Frametime = MainWindow.getFrametime();
         TextL->UpdateString();
     }
 

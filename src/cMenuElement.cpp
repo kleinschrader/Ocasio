@@ -25,9 +25,9 @@ cMenuElement::cMenuElement(cTextureLoader* TextureLoader, int PosX, int PosY, in
     this->Right_side->setPosition(this->PosX + this->Width - 30,this->PosY);
     this->Right_side->setScale(1,yScale);
 
-    this->Left_side->setTexture(TextureLoader->GetTexture(cTextureLoader::MENU_LEFT_BORDER));
-    this->Middle->setTexture(TextureLoader->GetTexture(cTextureLoader::MENU_MIDDLE_BORDER));
-    this->Right_side->setTexture(TextureLoader->GetTexture(cTextureLoader::MENU_RIGHT_BORDER));
+    this->Left_side->setTexture(TextureLoader->getTexture("MENU_LEFT_BORDER"));
+    this->Middle->setTexture(TextureLoader->getTexture("MENU_MIDDLE_BORDER"));
+    this->Right_side->setTexture(TextureLoader->getTexture("MENU_RIGHT_BORDER"));
 }
 
 cMenuElement::~cMenuElement()

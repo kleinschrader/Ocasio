@@ -1,7 +1,8 @@
 #ifndef CTEXTURELOADER_H
 #define CTEXTURELOADER_H
 
-#include <sfml/Graphics.hpp>
+#include <SFML/Graphics.hpp>
+#include "cIDTexture.h"
 
 #include <vector>
 
@@ -11,21 +12,14 @@ class cTextureLoader
         cTextureLoader();
         virtual ~cTextureLoader();
 
-        void LoadTexture(int TextureToLoad, const char *path);
-        const sf::Texture* GetTexture(int TextureToGet);
+        //Loads the Texture
+        void loadTexture(const char* nameOfTextue, const char *path);
 
-        enum TextureList
-        {
-            MENU_LEFT_BORDER,
-            MENU_RIGHT_BORDER,
-            MENU_MIDDLE_BORDER,
-            MENU_LEFT_NOBORDER,
-            MENU_RIGHT_NOBORDER,
-            MENU_MIDDLE_NOBORDER,
-            MAXSIZE
-        };
+        //return the Texture
+        const sf::Texture* getTexture(const char* nameOfTextue);
+
     private:
-        sf::Texture *Textures;
+        std::vector<cIDTexture*> textures;
 };
 
 #endif // CTEXTURELOADER_H

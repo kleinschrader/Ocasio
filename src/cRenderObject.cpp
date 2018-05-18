@@ -10,50 +10,53 @@ cRenderObject::~cRenderObject()
     //dtor
 }
 
-void cRenderObject::AddObject(sf::Drawable* drawable)
+void cRenderObject::addObject(sf::Drawable* drawable)
 {
-    this->RenderTargets.push_back(drawable);
+	//adds an drawable Object to the end of the Vectir
+    this->renderTargets.push_back(drawable);
 }
 
-void cRenderObject::RemoveObject(sf::Drawable* drawable)
+void cRenderObject::removeObject(sf::Drawable* drawable)
 {
-    int Size = this->RenderTargets.size();
+	//Gets the vector size
+    int vectorSize = this->renderTargets.size();
 
-    for(int i = 0; i < Size; i++)
+    //Loop through every Object
+    for(int i = 0; i < vectorSize; i++)
     {
-        if(this->RenderTargets[i] == drawable)
+    	//if the element at i the same as the argument?
+        if(this->renderTargets[i] == drawable)
         {
-            this->RenderTargets.erase(this->RenderTargets.begin() + i);
+        	//if yes remove it from the vector and stop the for loop
+            this->renderTargets.erase(this->renderTargets.begin() + i);
             break;
         }
     }
 }
 
-void cRenderObject::RemoveAndDeleteObject(sf::Drawable* drawable)
+void cRenderObject::removeAndDeleteObject(sf::Drawable* drawable)
 {
-    int Size = this->RenderTargets.size();
+	//Remove the Object from the vector
+	this->removeObject(drawable);
 
-    for(int i = 0; i < Size; i++)
-    {
-        if(this->RenderTargets[i] == drawable)
-        {
-            this->RenderTargets.erase(this->RenderTargets.begin() + i);
-            break;
-        }
-    }
-
+	//delete the Object from memory
     delete drawable;
 }
 
-void cRenderObject::StartThread()
+void cRenderObject::startThread()
 {
-    this->FrameTimer = new sf::Clock;
+	//Creates the Frame Timer
+    this->frameTimer = new sf::Clock;
 
-    this->RenderThread = new sf::Thread(&cRenderObject::MainThread,this);
-    this->RenderThread->launch();
+    //Create a Thread of the function "mainThread" with this Object as an argument
+    //So we can reference this in a static Function
+    this->renderThread = new sf::Thread(&cRenderObject::mainThread,this);
+
+    //Launches the thread.
+    this->renderThread->launch();
 }
 
-void cRenderObject::MainThread(cRenderObject *t_this)
+void cRenderObject::mainThread(cRenderObject *t_this)
 {
     //we active the window so we can draw
     t_this->setActive(true);
@@ -69,19 +72,19 @@ void cRenderObject::MainThread(cRenderObject *t_this)
         t_this->isPaused = false;
 
         //Gets the frametime
-        t_this->FrameTime = t_this->FrameTimer->restart().asMicroseconds();
+        t_this->frameTime = t_this->frameTimer->restart().asMicroseconds();
 
         //Clears the Screen
         t_this->clear();
 
         //We retrieve the Size of the Vector for the Loop, if we do it in the Loop our program can randomly crash
-        int Size = t_this->RenderTargets.size();
+        int vectorSize = t_this->renderTargets.size();
 
         //Loop through each element in the vector
-        for(int i = 0; i < Size; i++)
+        for(int i = 0; i < vectorSize; i++)
         {
             //We draw each one
-            t_this->draw(*t_this->RenderTargets[i]);
+            t_this->draw(*t_this->renderTargets[i]);
         }
 
         //We display everything we drew
@@ -89,28 +92,33 @@ void cRenderObject::MainThread(cRenderObject *t_this)
     }
 }
 
-void cRenderObject::Pause()
+void cRenderObject::pause()
 {
+	//Pauses the Rendering thread
     this->shouldPause = true;
 }
 
-void cRenderObject::Resume()
+void cRenderObject::resume()
 {
+	//Resumes it
     this->shouldPause = false;
 }
 
-void cRenderObject::WaitForPaused()
+void cRenderObject::waitForPaused()
 {
+	//Wait for as long as the Thread is not Paused.
     while(!this->isPaused)
         sf::sleep(sf::milliseconds(5));
 }
 
-int cRenderObject::GetFramerate()
+int cRenderObject::getFramerate()
 {
-    return 1000000 / this->FrameTime;
+	//Just calculate the Framerate
+    return 1000000 / this->frameTime;
 }
 
-int cRenderObject::GetFrametime()
+int cRenderObject::getFrametime()
 {
-    return this->FrameTime;
+	//Return the Frametime (in Microsecounds)
+    return this->frameTime;
 }

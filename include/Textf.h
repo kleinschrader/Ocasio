@@ -41,13 +41,20 @@ class Textf : public sf::Text
         //0XFF for no limit
         void setPercision(unsigned char);
     private:
+    	//gets called on window->draw(this)
          virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
+		//creates a vector for out variables
         std::vector<void*> PoiterToVariabled;
+
+        //Sould we allow updating on draw?
         bool autoUpdating = false;
 
+        //How many extra places do we allow after the dot
+        //0xFF (255) is no cutoff
         unsigned char Percision = 0xFF;
 
+        //Here we store our original string
         sf::String OrgString;
 };
 
