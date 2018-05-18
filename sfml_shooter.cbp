@@ -40,11 +40,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Textf.h" />
 		<Unit filename="include/cFontLoader.h" />
 		<Unit filename="include/cMenuElement.h" />
 		<Unit filename="include/cRenderObject.h" />
 		<Unit filename="include/cTextureLoader.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Textf.cpp" />
 		<Unit filename="src/cFontLoader.cpp" />
 		<Unit filename="src/cMenuElement.cpp" />
 		<Unit filename="src/cRenderObject.cpp" />

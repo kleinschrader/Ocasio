@@ -4,6 +4,7 @@
 #include <cFontLoader.h>
 #include <cTextureLoader.h>
 #include <cMenuElement.h>
+#include <Textf.h>
 
 int main()
 {
@@ -52,6 +53,18 @@ int main()
 
     cMenuElement *MainBar = new cMenuElement(&TextureLoader,25,50,450,2,&Title);
 
+    int FPS = 0;
+    int Frametime = 0;
+
+    Textf *TextL = new Textf;
+    TextL->setFont(FontLoader.GetFont(cFontLoader::impact));
+    TextL->setString("FPS: %i | Frametime: %ims");
+    TextL->addVaribale(&FPS);
+    TextL->addVaribale(&Frametime);
+    TextL->setCharacterSize(10);
+
+    MainWindow.AddObject(TextL);
+
     MainWindow.AddObject(MainBar);
 
     MainWindow.Resume();
@@ -65,8 +78,9 @@ int main()
                 MainWindow.close();
         }
 
-        std::cout << "Window Framerate: " << MainWindow.GetFramerate() << std::endl;
-
+        FPS = MainWindow.GetFramerate();
+        Frametime = MainWindow.GetFrametime();
+        TextL->UpdateString();
     }
 
     return 0;
