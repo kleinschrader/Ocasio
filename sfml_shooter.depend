@@ -37,3 +37,41 @@
 	<sfml/Graphics.hpp>
 	"cTextureLoader.h"
 
+1526649786 source:c:\users\ts\documents\github\sfml-gameengine-test\main.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	<cRenderObject.h>
+	<cFontLoader.h>
+	<cTextureLoader.h>
+	<cMenuElement.h>
+
+1526649909 c:\users\ts\documents\github\sfml-gameengine-test\include\crenderobject.h
+	<sfml/graphics.hpp>
+	<SFML/System.hpp>
+	<vector>
+
+1526636160 c:\users\ts\documents\github\sfml-gameengine-test\include\cfontloader.h
+	<sfml/Graphics.hpp>
+	<vector>
+
+1526636160 c:\users\ts\documents\github\sfml-gameengine-test\include\ctextureloader.h
+	<sfml/Graphics.hpp>
+	<vector>
+
+1526636160 c:\users\ts\documents\github\sfml-gameengine-test\include\cmenuelement.h
+	<sfml/Graphics.hpp>
+	"cTextureLoader.h"
+
+1526636160 source:c:\users\ts\documents\github\sfml-gameengine-test\src\cfontloader.cpp
+	"cFontLoader.h"
+
+1526636160 source:c:\users\ts\documents\github\sfml-gameengine-test\src\cmenuelement.cpp
+	"cMenuElement.h"
+	<iostream>
+
+1526649909 source:c:\users\ts\documents\github\sfml-gameengine-test\src\crenderobject.cpp
+	"cRenderObject.h"
+
+1526636160 source:c:\users\ts\documents\github\sfml-gameengine-test\src\ctextureloader.cpp
+	"cTextureLoader.h"
+

@@ -65,8 +65,7 @@ int main()
                 MainWindow.close();
         }
 
-
-
+        std::cout << "Window Framerate: " << MainWindow.GetFramerate() << std::endl;
 
     }
 

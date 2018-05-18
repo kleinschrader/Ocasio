@@ -69,13 +69,7 @@ void cRenderObject::MainThread(cRenderObject *t_this)
         t_this->isPaused = false;
 
         //Gets the frametime
-        t_this->FrameTime = t_this->FrameTimer->restart().asMilliseconds();
-
-        //Calculates the FPS
-        if(t_this->FrameTime != 0)
-            t_this->FPS = 1000 / t_this->FrameTime;
-        else
-            t_this->FPS = 0;
+        t_this->FrameTime = t_this->FrameTimer->restart().asMicroseconds();
 
         //Clears the Screen
         t_this->clear();
@@ -109,4 +103,14 @@ void cRenderObject::WaitForPaused()
 {
     while(!this->isPaused)
         sf::sleep(sf::milliseconds(5));
+}
+
+int cRenderObject::GetFramerate()
+{
+    return 1000000 / this->FrameTime;
+}
+
+int cRenderObject::GetFrametime()
+{
+    return this->FrameTime;
 }

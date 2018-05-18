@@ -22,6 +22,9 @@ class cRenderObject : public sf::RenderWindow
 
         void Pause();
         void Resume();
+
+        int GetFramerate();
+        int GetFrametime();
     private:
         static void MainThread(cRenderObject*);
 
@@ -33,7 +36,6 @@ class cRenderObject : public sf::RenderWindow
         sf::Clock *FrameTimer;
 
         int FrameTime = 0;
-        int FPS = 0;
 
         bool shouldPause = false;
         bool isPaused = false;
