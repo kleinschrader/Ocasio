@@ -58,10 +58,15 @@ int main()
 
     Textf *TextL = new Textf;
     TextL->setFont(FontLoader.GetFont(cFontLoader::impact));
-    TextL->setString("FPS: %i | Frametime: %ims");
+    TextL->setString("%c Engine-Framework | FPS: %i | Frametime: %ims");
+
+    const char* Ocasio = "Ocasio";
+    TextL->addVaribale((void*)Ocasio);
+    TextL->setPercision(3);
     TextL->addVaribale(&FPS);
     TextL->addVaribale(&Frametime);
     TextL->setCharacterSize(10);
+
 
     MainWindow.AddObject(TextL);
 

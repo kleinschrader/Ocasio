@@ -66,18 +66,38 @@ void Textf::UpdateString()
             case VariableTypes::v_float:
             {
                 std::string float_Buffer = std::to_string(*(float*)this->PoiterToVariabled[i]);
+
+                if(Percision != 0xFF)
+                {
+                    for(unsigned int ii = 0; ii < float_Buffer.size();ii++)
+                    {
+                        if(float_Buffer[ii] == '.')
+                        {
+                            if((float_Buffer.size() - ii) < this->Percision)
+                                break;
+                            else
+                            {
+                                float_Buffer.erase(ii + this->Percision,float_Buffer.size() - ii);
+                            }
+                        }
+                    }
+                }
+
                 BufferString.insert(PositionOfVars[i] + ExtraChars,float_Buffer);
                 ExtraChars += float_Buffer.size() - 2;
+                break;
             }
             case VariableTypes::v_string:
             {
                 char* chars = (char*)this->PoiterToVariabled[i];
-                int LengthOfString;
+
+                int LengthOfString = 0;
 
                 for(; chars[LengthOfString] != 0; LengthOfString++);
 
                 BufferString.insert(PositionOfVars[i] + ExtraChars,chars);
-                ExtraChars += LengthOfString;
+                ExtraChars += LengthOfString - 2;
+                break;
             }
         }
     }
@@ -122,4 +142,9 @@ void Textf::setString(const sf::String& String)
     sf::Text::setString(String);
 
     this->OrgString = String;
+}
+
+void Textf::setPercision(unsigned char MaxLengh)
+{
+    this->Percision = MaxLengh;
 }

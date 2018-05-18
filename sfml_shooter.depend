@@ -37,7 +37,7 @@
 	<sfml/Graphics.hpp>
 	"cTextureLoader.h"
 
-1526660374 source:c:\users\ts\documents\github\sfml-gameengine-test\main.cpp
+1526665457 source:c:\users\ts\documents\github\sfml-gameengine-test\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<cRenderObject.h>
@@ -76,11 +76,10 @@
 1526636160 source:c:\users\ts\documents\github\sfml-gameengine-test\src\ctextureloader.cpp
 	"cTextureLoader.h"
 
-1526661095 source:c:\users\ts\documents\github\sfml-gameengine-test\src\textf.cpp
+1526665568 source:c:\users\ts\documents\github\sfml-gameengine-test\src\textf.cpp
 	"Textf.h"
-	<iostream>
 
-1526660593 c:\users\ts\documents\github\sfml-gameengine-test\include\textf.h
+1526664926 c:\users\ts\documents\github\sfml-gameengine-test\include\textf.h
 	<SFML/graphics.hpp>
 	<vector>
 

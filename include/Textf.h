@@ -36,12 +36,17 @@ class Textf : public sf::Text
 
         //Overrides the string
         void setString(const sf::String& String);
+
+        //sets the Number of Characters after the "." in float values
+        //0XFF for no limit
+        void setPercision(unsigned char);
     private:
          virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
         std::vector<void*> PoiterToVariabled;
         bool autoUpdating = false;
 
+        unsigned char Percision = 0xFF;
 
         sf::String OrgString;
 };
