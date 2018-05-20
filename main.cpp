@@ -5,11 +5,10 @@
 #include "cTextureLoader.h"
 #include "cMenuElement.h"
 #include "Textf.h"
+#include "cAnimationManager.h"
 
 int main()
 {
-	//Game name: Ocasio
-
     sf::Texture *LoadingImage = new sf::Texture;
     LoadingImage->loadFromFile("resource/textures/Loading.png");
     sf::Sprite *LoadingSprite = new sf::Sprite(*LoadingImage);
@@ -31,6 +30,8 @@ int main()
     TextureLoader.loadTexture("MENU_LEFT_BORDER","resource/textures/menu/background/border/left.png");
     TextureLoader.loadTexture("MENU_RIGHT_BORDER","resource/textures/menu/background/border/right.png");
     TextureLoader.loadTexture("MENU_MIDDLE_BORDER","resource/textures/menu/background/border/straight.png");
+	TextureLoader.loadTexture("EXAMPLE_PERSON_THUMPS_UP","resource/animations/examplePerson/thumpsup/thumpsup.png");
+	TextureLoader.loadTexture("EXAMPLE_PERSON_SHOOTING","resource/animations/examplePerson/shooting/shooting.png");
 
     MainWindow.pause();
     MainWindow.waitForPaused();
@@ -45,10 +46,19 @@ int main()
 	Title.setPosition(250,50);
 
 
+	sf::RectangleShape Shape;
+	Shape.setSize(sf::Vector2f(500,417));
+
+	cAnimationManager Tester(&Shape,&TextureLoader,"THUMPS_UP");
+	Tester.loadAnimation("SHOOTING","resource/animations/examplePerson/shooting/shooting.anim",false);
+	Tester.loadAnimation("THUMPS_UP","resource/animations/examplePerson/thumpsup/thumpsup.anim",true);
+	Tester.playAnimation("THUMPS_UP");
+
     cMenuElement *MainBar = new cMenuElement(&TextureLoader,25,50,450,2,&Title);
 
     int FPS = 0;
     int Frametime = 0;
+
 
     Textf *TextL = new Textf;
     TextL->setFont(FontLoader.GetFont(cFontLoader::impact));
@@ -61,10 +71,11 @@ int main()
     TextL->addVaribale(&Frametime);
     TextL->setCharacterSize(10);
 
-
     MainWindow.addObject(TextL);
 
     MainWindow.addObject(MainBar);
+
+    MainWindow.addObject(&Shape);
 
     MainWindow.resume();
 
@@ -75,7 +86,14 @@ int main()
         {
             if(PollEvent.type == sf::Event::Closed)
                 MainWindow.close();
+			if(PollEvent.type == sf::Event::KeyPressed)
+			{
+				if(PollEvent.key.code == sf::Keyboard::Space)
+ 					Tester.playAnimation("SHOOTING");
+			}
         }
+
+        Tester.Update();
 
         FPS = MainWindow.getFramerate();
         Frametime = MainWindow.getFrametime();

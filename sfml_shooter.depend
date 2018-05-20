@@ -103,7 +103,7 @@
 	"cIDTexture.h"
 	<vector>
 
-1526675205 source:c:\users\user\documents\github\sfml-gameengine-test\src\crenderobject.cpp
+1526823470 source:c:\users\user\documents\github\sfml-gameengine-test\src\crenderobject.cpp
 	"cRenderObject.h"
 
 1526675205 c:\users\user\documents\github\sfml-gameengine-test\include\crenderobject.h
@@ -114,14 +114,14 @@
 1526679184 source:c:\users\user\documents\github\sfml-gameengine-test\src\ctextureloader.cpp
 	"cTextureLoader.h"
 
-1526673910 source:c:\users\user\documents\github\sfml-gameengine-test\src\textf.cpp
+1526680782 source:c:\users\user\documents\github\sfml-gameengine-test\src\textf.cpp
 	"Textf.h"
 
 1526680735 c:\users\user\documents\github\sfml-gameengine-test\include\textf.h
 	<SFML/graphics.hpp>
 	<vector>
 
-1526678466 source:c:\users\user\documents\github\sfml-gameengine-test\main.cpp
+1526843983 source:c:\users\user\documents\github\sfml-gameengine-test\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"cRenderObject.h"
@@ -129,10 +129,35 @@
 	"cTextureLoader.h"
 	"cMenuElement.h"
 	"Textf.h"
+	"cAnimationManager.h"
 
 1526678717 c:\users\user\documents\github\sfml-gameengine-test\include\cidtexture.h
 	<sfml/Graphics.hpp>
 
 1526676432 source:c:\users\user\documents\github\sfml-gameengine-test\src\cidtexture.cpp
 	"cIDTexture.h"
+
+1526812049 source:c:\users\user\documents\github\sfml-gameengine-test\src\canimationobject.cpp
+	"cAnimationObject.h"
+
+1526817491 c:\users\user\documents\github\sfml-gameengine-test\include\canimationobject.h
+	<SFML/Graphics.hpp>
+	<vector>
+
+1526842803 source:c:\users\user\documents\github\sfml-gameengine-test\src\canimationsequence.cpp
+	"cAnimationSequence.h"
+	<iostream>
+
+1526841930 c:\users\user\documents\github\sfml-gameengine-test\include\canimationsequence.h
+	<SFML/Graphics.hpp>
+	<vector>
+	"cTextureLoader.h"
+
+1526843266 source:c:\users\user\documents\github\sfml-gameengine-test\src\canimationmanager.cpp
+	"cAnimationManager.h"
+
+1526843224 c:\users\user\documents\github\sfml-gameengine-test\include\canimationmanager.h
+	<SFML/Graphics.hpp>
+	<vector>
+	"cAnimationSequence.h"
 
