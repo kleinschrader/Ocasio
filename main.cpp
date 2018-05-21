@@ -24,7 +24,7 @@ int main()
     cFontLoader FontLoader;
     cTextureLoader TextureLoader;
 
-    FontLoader.LoadFont(cFontLoader::impact,"resource/fonts/impact.ttf");
+    FontLoader.LoadFont("impact","resource/fonts/impact.ttf");
 
     //Load menu elements with borders
     TextureLoader.loadTexture("MENU_LEFT_BORDER","resource/textures/menu/background/border/left.png");
@@ -39,7 +39,7 @@ int main()
     MainWindow.removeAndDeleteObject(LoadingSprite);
 
     sf::Text Title;
-    Title.setFont(FontLoader.GetFont(cFontLoader::impact));
+    Title.setFont(FontLoader.GetFont("impact"));
     Title.setCharacterSize(50);
     Title.setString("Ocasio");
 	Title.setOrigin(Title.getGlobalBounds().width/2,0);
@@ -59,9 +59,8 @@ int main()
     int FPS = 0;
     int Frametime = 0;
 
-
     Textf *TextL = new Textf;
-    TextL->setFont(FontLoader.GetFont(cFontLoader::impact));
+    TextL->setFont(FontLoader.GetFont("impact"));
     TextL->setString("%c Engine-Framework | FPS: %i | Frametime: %ims");
 
     const char* Ocasio = "Ocasio";

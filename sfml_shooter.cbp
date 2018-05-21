@@ -44,6 +44,7 @@
 		<Unit filename="include/cAnimationManager.h" />
 		<Unit filename="include/cAnimationSequence.h" />
 		<Unit filename="include/cFontLoader.h" />
+		<Unit filename="include/cIDFont.h" />
 		<Unit filename="include/cIDTexture.h" />
 		<Unit filename="include/cMenuElement.h" />
 		<Unit filename="include/cRenderObject.h" />
@@ -53,6 +54,7 @@
 		<Unit filename="src/cAnimationManager.cpp" />
 		<Unit filename="src/cAnimationSequence.cpp" />
 		<Unit filename="src/cFontLoader.cpp" />
+		<Unit filename="src/cIDFont.cpp" />
 		<Unit filename="src/cIDTexture.cpp" />
 		<Unit filename="src/cMenuElement.cpp" />
 		<Unit filename="src/cRenderObject.cpp" />

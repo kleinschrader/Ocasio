@@ -2,8 +2,11 @@
 #define CFONTLOADER_H
 
 #include <sfml/Graphics.hpp>
+#include "cIDFont.h"
 
 #include <vector>
+
+#include <iostream>
 
 class cFontLoader
 {
@@ -11,18 +14,12 @@ class cFontLoader
         cFontLoader();
         virtual ~cFontLoader();
 
-        void LoadFont(int FontToLoad, const char *path);
-        sf::Font& GetFont(int Font);
-
-        enum Fonts
-        {
-            impact,
-            MAXSIZE
-        };
+        void LoadFont(const char* FontName, const char *path);
+        sf::Font& GetFont(const char* FontName);
 
     private:
 
-        sf::Font *FontArray;
+        std::vector<cIDFont*> fonts;
 };
 
 #endif // CFONTLOADER_H
